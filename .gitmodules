@@ -1,9 +1,0 @@
-[submodule "langchain4j-examples"]
-	path = langchain4j-examples
-	url = git@github.com:Castlebin/langchain4j-examples.git
-[submodule "langchain4j-course"]
-	path = langchain4j-course
-	url = git@github.com:Castlebin/langchain4j-course.git
-[submodule "spring-ai-alibaba-examples"]
-	path = spring-ai-alibaba-examples
-	url = git@github.com:Castlebin/spring-ai-alibaba-examples.git

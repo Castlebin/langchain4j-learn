@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.heller</groupId>
-    <artifactId>java-ai-learn</artifactId>
+    <artifactId>langchain4j-learn</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 
     <properties>
