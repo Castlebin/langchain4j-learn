@@ -18,7 +18,7 @@
 
         <junit-bom.version>5.7.2</junit-bom.version>
         <lombok.version>1.18.36</lombok.version>
-        <langchain4j.version>1.0.0-beta1</langchain4j.version>
+        <langchain4j.version>1.0.0-beta4</langchain4j.version>
     </properties>
 
     <dependencyManagement>
@@ -30,6 +30,7 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+
             <dependency>
                 <groupId>dev.langchain4j</groupId>
                 <artifactId>langchain4j-bom</artifactId>
@@ -37,6 +38,8 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+
+            <!-- langchain4j 社区依赖，如果要使用社区的大模型，可以依赖它。比如 千问、智普等 -->
             <dependency>
                 <groupId>dev.langchain4j</groupId>
                 <artifactId>langchain4j-community-bom</artifactId>

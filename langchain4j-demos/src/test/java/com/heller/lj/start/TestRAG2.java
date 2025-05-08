@@ -16,7 +16,7 @@ import dev.langchain4j.data.document.splitter.DocumentByCharacterSplitter;
 import dev.langchain4j.data.document.splitter.DocumentByRegexSplitter;
 import dev.langchain4j.data.embedding.Embedding;
 import dev.langchain4j.data.segment.TextSegment;
-import dev.langchain4j.model.chat.ChatLanguageModel;
+import dev.langchain4j.model.chat.ChatModel;
 import dev.langchain4j.rag.content.retriever.ContentRetriever;
 import dev.langchain4j.rag.content.retriever.EmbeddingStoreContentRetriever;
 import dev.langchain4j.service.AiServices;
@@ -96,7 +96,7 @@ public class TestRAG2 {
         );
 
         // RAG 检索、增强、生成
-        ChatLanguageModel model = QwenChatModel.builder()
+        ChatModel model = QwenChatModel.builder()
                 .apiKey("sk-2833a07601ef4c6bbed1fb41c50c2fda")
                 .modelName("qwen-max")
                 .build();
@@ -109,7 +109,7 @@ public class TestRAG2 {
                 .minScore(0.7) // 最小相似度分数 （小于它的将被过滤掉）
                 .build();
         AiRAGAssitant aiRAGAssitant = AiServices.builder(AiRAGAssitant.class)  // 生成我们的 AiRAGAssitant 代理
-                .chatLanguageModel(model)  // 使用的 语言模型
+                .chatModel(model)  // 使用的 语言模型
                 .contentRetriever(
                         contentRetriever)  // 使用的 内容检索器 （ RAG ）  ，对话时会自动的去 contentRetriever
                 // 中检索相关的信息，并且跟用户输入的信息结合起来，提供给大语言模型进行生成

@@ -6,8 +6,8 @@ import org.junit.jupiter.api.Test;
 import dev.langchain4j.community.model.dashscope.QwenChatModel;
 import dev.langchain4j.community.model.dashscope.QwenStreamingChatModel;
 import dev.langchain4j.memory.chat.MessageWindowChatMemory;
-import dev.langchain4j.model.chat.ChatLanguageModel;
-import dev.langchain4j.model.chat.StreamingChatLanguageModel;
+import dev.langchain4j.model.chat.ChatModel;
+import dev.langchain4j.model.chat.StreamingChatModel;
 import dev.langchain4j.model.openai.OpenAiChatModel;
 import dev.langchain4j.model.openai.OpenAiStreamingChatModel;
 import dev.langchain4j.service.AiServices;
@@ -25,14 +25,14 @@ public class TestAiAgent {
     static void init() {
         // OpenAI
         // 使用 demo api key
-        ChatLanguageModel openai = OpenAiChatModel.builder()
+        ChatModel openai = OpenAiChatModel.builder()
                 .baseUrl("http://langchain4j.dev/demo/openai/v1")
                 .apiKey("demo")     // 使用 demo api key
                 .modelName("gpt-4o-mini")
                 .build();
 
         // 通义千问
-        ChatLanguageModel qwen = QwenChatModel.builder()
+        ChatModel qwen = QwenChatModel.builder()
                 .apiKey("sk-2833a07601ef4c6bbed1fb41c50c2fda")
                 .modelName("qwen-max")
                 .build();
@@ -40,20 +40,20 @@ public class TestAiAgent {
         // deepseek
         // 使用 硅基流动 的 api 地址
         // api key
-        ChatLanguageModel deepseek = OpenAiChatModel.builder()
+        ChatModel deepseek = OpenAiChatModel.builder()
                 .baseUrl("https://api.siliconflow.cn/v1")  // 使用 硅基流动 的 api 地址
                 .apiKey("sk-huuqagfsszvnqkhqnxvdadkmrxvpvhokenxvxdwysxdpzkfg")     // api key
                 .modelName("deepseek-ai/DeepSeek-V3")
                 .build();
 
         AiAgentDispatcher dispatcher = AiServices.builder(AiAgentDispatcher.class)
-                .chatLanguageModel(openai)
+                .chatModel(openai)
                 .build();
         ChatBot chatBot = AiServices.builder(ChatBot.class)
-                .chatLanguageModel(deepseek)
+                .chatModel(deepseek)
                 .build();
         CodingAssistant codingAssistant = AiServices.builder(CodingAssistant.class)
-                .chatLanguageModel(qwen)
+                .chatModel(qwen)
                 .build();
 
         agent = new AiAgent(dispatcher, chatBot, codingAssistant);

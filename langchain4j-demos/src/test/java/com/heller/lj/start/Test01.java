@@ -3,7 +3,7 @@ package com.heller.lj.start;
 import org.junit.jupiter.api.Test;
 
 import dev.langchain4j.community.model.dashscope.QwenChatModel;
-import dev.langchain4j.model.chat.ChatLanguageModel;
+import dev.langchain4j.model.chat.ChatModel;
 import dev.langchain4j.model.ollama.OllamaChatModel;
 import dev.langchain4j.model.openai.OpenAiChatModel;
 
@@ -33,7 +33,7 @@ public class Test01 {
 
     @Test
     void testChatQwen() { // 通义千问
-        ChatLanguageModel model = QwenChatModel.builder()
+        ChatModel model = QwenChatModel.builder()
                 .apiKey("sk-2833a07601ef4c6bbed1fb41c50c2fda")
                 .modelName("qwen-max")
                 .build();
@@ -43,7 +43,7 @@ public class Test01 {
 
     @Test
     void testCharOllama() { // Ollama
-        ChatLanguageModel model = OllamaChatModel.builder()
+        ChatModel model = OllamaChatModel.builder()
                 .baseUrl("http://localhost:11434")
                 .modelName("deepseek-r1:1.5b")
                 .build();

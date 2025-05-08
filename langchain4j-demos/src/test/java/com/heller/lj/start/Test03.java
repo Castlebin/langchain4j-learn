@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import dev.langchain4j.data.message.AiMessage;
 import dev.langchain4j.data.message.UserMessage;
-import dev.langchain4j.model.chat.ChatLanguageModel;
+import dev.langchain4j.model.chat.ChatModel;
 import dev.langchain4j.model.chat.response.ChatResponse;
 import dev.langchain4j.model.openai.OpenAiChatModel;
 
@@ -16,7 +16,7 @@ public class Test03 {
      */
     @Test
     void testChat() {
-        ChatLanguageModel model = OpenAiChatModel.builder()
+        ChatModel model = OpenAiChatModel.builder()
                 .baseUrl("http://langchain4j.dev/demo/openai/v1")
                 .apiKey("demo")     // 使用 demo api key
                 .modelName("gpt-4o-mini")
@@ -37,7 +37,7 @@ public class Test03 {
      */
     @Test
     void testChat_01() {
-        ChatLanguageModel model = OpenAiChatModel.builder()
+        ChatModel model = OpenAiChatModel.builder()
                 .baseUrl("http://langchain4j.dev/demo/openai/v1")
                 .apiKey("demo")     // 使用 demo api key
                 .modelName("gpt-4o-mini")
